@@ -1,0 +1,525 @@
+@import 'white';
+
+.reveal {
+  .subhead {
+    @extend h4;
+    color: currentColor;
+    font-family: $mainFont;
+    font-style: normal;
+    font-weight: bold;
+    text-shadow: inherit;
+
+    &.fancy {
+      font-family: $headingFont;
+    }
+    &.smaller {
+      font-size: 0.75em;
+      margin: 0;
+    }
+  }
+  .muted {
+    color: $mutedColor;
+    display: block;
+  }
+  .subhead .muted {
+    display: block;
+    line-height: 2;
+  }
+  h2 .subhead,
+  h3 .subhead {
+    display: block;
+    font-size: 0.75em;
+    line-height: 1;
+  }
+
+  .inverted {
+    &> * {
+      background-color: rgba(0, 0, 0, 0.7); 
+      color: #fff;
+      display: inline-block;
+      padding: 0 0.25em;
+
+      a:link {
+        color: currentColor;
+      }
+    }
+  }
+  .all-caps {
+    text-transform: uppercase;
+  }
+  .offscreen {
+    position: absolute;
+    left: -500000px;
+  }
+  .progress {
+    background-color: $dequeBgColor;
+    height: 15px;
+
+    span {
+      background: $accentColor;
+      box-shadow: 2px 1px 3px #666;
+    }
+  }
+
+  pre code {
+    font-family: Menlo, Courier, monospace;
+    max-height: 520px;
+  }
+  pre.larger {
+    font-size: 0.75em;
+  }
+  pre.large {
+    font-size: 0.65em;
+  }
+  figcaption {
+    font-weight: bold;
+  }
+  figure.code,
+  figure.image-with-caption {
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    pre {
+      box-shadow: none;
+      margin-bottom: 0;
+      width: 100%;
+
+      code.hljs {
+        background-color: inherit;
+
+        &.large-tag {
+          font-size: 2em;
+          line-height: 1.2;
+          overflow: hidden;
+          text-align: left;
+        }
+      }
+    }
+
+    figcaption {
+      background-color: $codeCaptionBgColor;
+      color: $codeCaptionColor;
+      font-size: 0.8em;
+      font-style: normal;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding: 10px 20px;
+      text-align: left;
+      width: 100%;
+
+      a {
+        color: currentColor;
+        text-decoration: underline;
+      }
+    }
+  }
+  iframe {
+    box-shadow: 0px 0px 3px #000;
+  }
+  .strike {
+    text-decoration: line-through;
+  }
+  .overlaidHeadline {
+    background-color: $backgroundColor;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    span {
+      color: darken($accentColor, 10%);
+      font-size: 0.75em;
+      left: 0;
+      right: 0;
+      line-height: 0.25;
+      position: absolute;
+
+      &:before {
+        content: '^';
+        display: block;
+        line-height: 1;
+        margin-left: 1em;
+        margin-top: 0.1em;
+      }
+    }
+  }
+  ul.larger {
+    font-size: 1.25em;
+    line-height: 1.5;
+  }
+  ul.spacedOut {
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+  .separated {
+    border-top: 4px dotted #ccc; 
+    max-width: 600px; 
+    margin: 1em auto; 
+    padding-top: 1em;
+  }
+  dl {
+    margin-left: 0;
+    width: 100%;
+
+    dt {
+      background-color: $codeBgColor;
+      border-bottom: 1px solid;
+    }
+    dd {
+      padding-top: 0.25em;
+      margin-bottom: 0.75em;
+    }
+  }
+  figure.support-table {
+    margin: 0 auto;
+    width: 900px;
+
+    table {
+      font-size: 0.9em;
+      width: 100%;
+    }
+
+    th:nth-child(2),
+    th:nth-child(3),
+    td:nth-child(2),
+    td:nth-child(3) {
+      text-align: center;
+    }
+    thead th {
+      color: $mutedColor;
+      border: 0;
+      padding-bottom: 1em;
+    }
+    th[colspan="3"] {
+      background-color: $codeBgColor;
+    }
+    .group-end td {
+      border-bottom: 0;
+      padding-bottom: 1em;
+    }
+  }
+  figure.code {
+    background-color: $codeBgColor;
+  }
+  figure.image-with-caption {
+    img {
+      border: 2px solid $mutedColor;
+      border-bottom-width: 0;
+      box-shadow: none;
+      display: block;
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &> figcaption {
+      margin-bottom: 0;
+    }
+  }
+  .regular-case {
+    text-transform: none;
+  }
+  .plain {
+    background-color: transparent;
+  }
+  .parentheses {
+    position: relative;
+
+    &:before {
+      color: $accentColor;
+      content: '{';
+      display: block;
+      font-size: 4em;
+      margin-left: 10%;
+      top: 0;
+      position: absolute;
+    }
+    &:after {
+      color: $accentColor;
+      content: '}';
+      display: block;
+      font-size: 4em;
+      top: 0;
+      right: 10%;
+      position: absolute;
+    }
+  }
+}
+/*********************************************
+ * LAYOUTS
+ *********************************************/
+.reveal .left-align {
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+
+  &:not(.snug) > * + * {
+    margin-top: 100px;
+  }
+  .big-heading {
+    font-family: $headingFont;
+    font-size: 2.8em;
+  }
+  [aria-hidden="true"] {
+    color: $mutedColor;
+  }
+}
+.reveal li .twoThirdsCol {
+  padding-top: 2%;
+
+  small {
+    clear: both;
+    display: block;
+    text-align: center;
+  }
+}
+.reveal .wideCol {
+  vertical-align: top;
+  width: 54%;
+
+  &.twoThirdsCol {
+    float: left;
+  }
+}
+.reveal .skinnyCol {
+  vertical-align: top;
+  width: 44%;
+
+  &.twoThirdsCol {
+    float: left;
+    margin-right: 2%;
+  }
+}
+.reveal .twoThirdsCol pre {
+  font-size: .59em;
+  margin-top: 0;
+  width: 100%;
+}
+.reveal .halfCol {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0.5%;
+  width: 48%;
+  vertical-align: top;
+
+  h2, h3 {
+    text-align: left;
+  }
+  ul {
+    display: block;
+    padding: 0;
+    margin-left: 0.5em;
+  }
+  li {
+    margin: 0;
+    list-style-position: inside;
+    padding-left: 0em;
+  }
+}
+
+.reveal {
+  .word-cloud {
+      width: 300px;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style: none;
+      text-align: justify;
+  }
+  .word-cloud__word {
+    display: inline-block;
+    font-size: 1.2em;
+    line-height: 1;
+    padding: 0 0.5em;
+    text-align: center;
+
+    &.x-small,
+    &.small {
+      font-weight: 100;
+    }
+    &.x-small {
+      font-size: 2em;
+      color: $wordCloudXSm;
+    }
+    &.small {
+      font-size: 3em;
+      color: $wordCloudSm;
+    }
+    &.large {
+      font-size: 4.25em;
+      color: $wordCloudLg;
+    }
+    &.x-large {
+      font-size: 4.85em;
+      letter-spacing: -0.0125em;
+      color: $wordCloudXLg;
+    }
+  }
+}
+.reveal {
+  .layeredFragments {
+    margin: 0 auto;
+    min-height: 1000px;
+    position: relative;
+    width: 100%;
+
+    &>img, 
+    &>figure {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      margin: 0;
+      width: 100%;
+    }
+    &.wordcloud {
+      position: absolute;
+      top: 0;
+
+      .fragment {
+        position: absolute;
+      }
+    }
+  }
+}
+.reveal {
+  .responsive-video {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+
+    iframe, object, embed, video {
+      position:absolute;
+      top: 0;
+      left: 0;
+      max-height: 720px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+/*********************************************
+ * Custom Slides
+ *********************************************/
+
+.deque-title-slide {
+  // navigation
+  .controls {
+    bottom: 110px;
+  }
+  .slide-background:after {
+    background-color: $dequeBgColor;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 100px;
+    max-height: 10%;
+    position: absolute;
+    width: 100%;
+  }
+  .left {
+    float: left;
+  }
+    img.deque {
+      max-width: 400px;
+      margin: -8% 0 0;
+    }
+  .right {
+    float: right;
+    padding-top: 8%;
+    text-align: left;
+    width: 65%;
+  }
+  @media #{$tablet} {
+    .slide-background:after {
+      display: none;
+    }
+    .left {
+      img.deque {
+        max-width: 300px;
+      }
+    }
+    .right {
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+  }
+  @media #{$mobile} {
+    .left {
+      float: none;
+      img.deque {
+        margin: 0 auto;
+      }
+    }
+    .right {
+      float: none;
+      margin: 0 auto;
+      width: 90%;
+      h1 {
+        font-size: 1.5em;
+        text-align:  center;
+      }
+      p {
+        font-size: 0.75em;
+      }
+    }
+  }
+}
+
+#wallace-gromit {
+  background: $codeBgColor url(../../img/wallace-gromit.jpg) no-repeat top right;
+  padding-bottom: 33px;
+
+  code {
+    background-color: transparent;
+  }
+}
+.reveal {
+  .border-top {
+    border-top: 3px solid #ccc;
+  }
+  .border-bottom {
+    border-bottom: 3px solid #ccc;
+    display: inline-block;
+    padding: 0 2em 0.5em;
+  }
+}
+#oh-hai-images {
+  display: inline-block;
+  margin-top: 0em;
+  text-align: center;
+
+  img, div {
+    // display: inline-block;
+    vertical-align: middle;
+  }
+  div {
+    // max-width: 320px;
+    // margin: 0 20px 0 10px;
+    margin: 10px 0 0;
+    text-align: center;
+  }
+  .angular {
+    max-width: 300px;
+  }
+  .axe {
+    background-color: #fff;
+    // padding: 10px;
+    width: 400px;
+  }
+  .gdi {
+    max-width: 250px;
+  }
+  .slack {
+    max-width: 320px;
+  }
+}
