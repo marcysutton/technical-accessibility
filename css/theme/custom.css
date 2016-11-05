@@ -670,8 +670,10 @@ body {
     margin: 0 auto;
     width: 90%; }
     .deque-title-slide .right h1 {
-      font-size: 1.5em;
-      text-align: center; }
+      font-size: 1.25em;
+      text-align: center;
+      word-break: normal;
+      word-wrap: normal; }
     .deque-title-slide .right p {
       font-size: 0.75em; } }
 

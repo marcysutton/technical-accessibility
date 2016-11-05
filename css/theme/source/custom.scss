@@ -465,8 +465,10 @@
       margin: 0 auto;
       width: 90%;
       h1 {
-        font-size: 1.5em;
+        font-size: 1.25em;
         text-align:  center;
+        word-break: normal;
+        word-wrap: normal
       }
       p {
         font-size: 0.75em;
