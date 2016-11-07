@@ -1,6 +1,6 @@
 # Technical Accessibility
 
-How to use your web development skills for the good of mankind
+How to use your web development skills for the good of humankind
 
 By Marcy Sutton, Senior Front-end Engineer at Deque Systems
 
